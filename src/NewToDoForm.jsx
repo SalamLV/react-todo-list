@@ -1,17 +1,14 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-export function NewToDoForm() {
+export function NewToDoForm({ onSubmit }) {
   const [newItem, setNewItem] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (newItem === "") return;
 
-    // setTodos((currentTodos) => {
-    //   return [
-    //     ...currentTodos,
-    //     { id: crypto.randomUUID(), title: newItem, completed: false },
-    //   ];
-    // });
+    onSubmit(newItem);
 
     setNewItem("");
   }
@@ -30,3 +27,7 @@ export function NewToDoForm() {
     </form>
   );
 }
+
+NewToDoForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
