@@ -1,4 +1,5 @@
 import { ToDoItem } from "./ToDoItem";
+import PropTypes from "prop-types";
 
 export function ToDoList({ todos, toggleTodo, deleteTodo }) {
   return (
@@ -17,3 +18,9 @@ export function ToDoList({ todos, toggleTodo, deleteTodo }) {
     </ul>
   );
 }
+
+ToDoList.propTypes = {
+  toggleTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
+  todos: PropTypes.array.isRequired,
+};

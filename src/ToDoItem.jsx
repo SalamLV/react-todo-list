@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export function ToDoItem({ completed, id, title, toggleTodo, deleteTodo }) {
   return (
     <li>
@@ -15,3 +17,11 @@ export function ToDoItem({ completed, id, title, toggleTodo, deleteTodo }) {
     </li>
   );
 }
+
+ToDoItem.propTypes = {
+  toggleTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
+  completed: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+};
