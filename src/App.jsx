@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import { NewToDoForm } from "./NewToDoForm";
 import { ToDoList } from "./ToDoList";
+import { UserInfo } from "./UserInfo";
 
 function App() {
   const [todos, setTodos] = useState(() => {
@@ -55,8 +56,11 @@ function App() {
       <NewToDoForm onSubmit={addToDo} />
       <h1 className="header">ToDo List</h1>
       <ToDoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+      <hr />
       <h1 className="header">Totally Clicked Add button</h1>
       <p>{previousItem.current}</p>
+      <hr />
+      <UserInfo />
     </>
   );
 }
